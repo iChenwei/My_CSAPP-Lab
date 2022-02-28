@@ -7,28 +7,65 @@
 
 ## 环境搭建
 
-### 1. Docker & Ubuntu
+- 使用docker拉取Ubuntu镜像方式
+- 配置Ubuntu18.04容器
 
+#### 1. 拉取镜像
 
-
-### 2. macOS
-
-#### 使用homebrew安装gcc & gdb
-
-```shell
-brew install gcc 
-
-brew install gdb
+```bash
+docker pull ubuntu:18.04
 ```
 
-#### 使用GUN gcc
+#### 2. 创建容器
 
-```shell
-gcc-11 -o main main.cpp
+- 使用数据卷技术（类似于C/C++引用），建立容器与本地的文件通信
+- 参数`-v`
+
+```bash
+docker run -it -v /User/willchan/GitHub/My_CSAPP-Lab:/csapp --name="csapp"  ubuntu:18.04 /bin/bash
 ```
 
----
+#### 3. 配置Ubuntu
+
+- 更新apt源
+
+```bash
+apt-get update
+```
+
+- 安装sudo
+
+```bash
+apt-get install sudo
+```
+
+- 安装c/c++编译环境
+
+```bash
+sudo apt-get install build-essential
+```
+
+- 安装gcc库文件
+
+```bash
+sudo apt-get install gcc-multilib
+```
+
+- 安装gdb
+
+```bash
+sudo apt-get install gdb
+```
 
 ## 实验进度
 
-- [ ] datalab
+- [ ] [Data Lab]
+- [ ] [Bomb Lab]
+- [ ] [Attack Lab]
+- [ ] [Buffer Lab]
+- [ ] [Architecture Lab]
+- [ ] [Cache Lab]
+- [ ] [Performance Lab]
+- [ ] [Shell Lab]
+- [ ] [Malloc Lab]
+- [ ] [Proxy Lab]su
